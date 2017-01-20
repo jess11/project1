@@ -1,0 +1,10 @@
+<h1>Administration Page</h1>
+<h3>All Users</h3>
+
+<% @users.each do |user| %>
+  <p><%= user.email %></p>
+    <ul>
+      <li>Name: <%= user.name  %></li>
+      <li>Location: <%= user.location %></li>
+    </ul>
+<% end %>
