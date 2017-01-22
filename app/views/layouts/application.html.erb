@@ -9,15 +9,17 @@
 <body>
 
 <nav>
-  <%= link_to "Home", root_path %>
+
   <% if @current_user.present? %>
     <% if @current_user.admin? %>
       <%= link_to "All users", users_path %>
     <% end %>
+    <%= link_to "Home", root_path %>
     <%= link_to "Profile", users_profile_path %>
     <%= link_to "Edit Profile", users_edit_path %>
     <%= link_to "Logout #{@current_user.email}", login_path, :method => 'delete' %>
   <% else %>
+    <%= link_to "Home", root_path %>
     <%= link_to "Sign up", new_user_path %>
     <%= link_to "Sign in", login_path %>
   <% end %>

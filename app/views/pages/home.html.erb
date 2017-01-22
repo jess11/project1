@@ -1,2 +1,28 @@
-<h1>Twitter Clone</h1>
-<p>Home Page</p>
+<% if @current_user.present? %>
+
+  <h1>Main Page</h1>
+
+  <p>Content coming soon</p>
+
+  <% if @post.errors.any? %>
+    <ol>
+      <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ol>
+  <% end %>
+
+  <%= form_for @post do |f| %>
+    <%= f.label :tweet %>
+    <%= f.text_area :tweet, placeholder: "What's new?", :required => true %>
+    <%= f.submit "Tweet"%>
+  <% end %>
+
+  <%=  render :partial => 'posts/post' %>
+
+<% else %>
+
+  <h1>Twitter Clone</h1>
+  <p>Home Page</p>
+
+<% end %>

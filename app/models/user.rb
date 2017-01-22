@@ -10,7 +10,7 @@
 
 class User < ActiveRecord::Base
   has_many :comments
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_secure_password
   validates :email, :presence => true, :uniqueness => true, :length => { :minimum => 5 }
 end

@@ -1,0 +1,10 @@
+
+<% @user.posts.each do |post| %>
+  <h3><%= @user.name %></h3>
+  <p><%= "#{time_ago_in_words(post.created_at)} ago" unless post.created_at.nil? %></p>
+  <p><%= post.tweet %></p>
+  <p>Likes: <%= post.likes unless post.likes.nil? %></p>
+  <% if @user == post.user %>
+    <%= link_to "Delete Tweet", post_path(:id => post.id),:method => 'delete', :data => { :confirm => 'Are you sure?'}  %>
+  <% end %>
+<% end %>
