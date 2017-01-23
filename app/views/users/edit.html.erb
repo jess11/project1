@@ -9,17 +9,27 @@
 <% end %>
 
 <%= form_for @user do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email, :required => true %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name, :required => true %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, :required => true, :class => 'form-control' %>
+  </div>
 
-  <%= f.label :location %>
-  <%= f.text_field :location %>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, :required => true, :class => 'form-control' %>
+  </div>
 
-  <%= f.label :image %>
-  <%= f.url_field :image %>
+  <div class="form-group">
+    <%= f.label :location %>
+    <%= f.text_field :location, :class => 'form-control' %>
+  </div>
 
-  <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.url_field :image, :class => 'form-control' %>
+  </div>
+
+  <%= f.submit :class => 'btn btn-primary'%>
+
 <% end %>

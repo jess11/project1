@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root :to => 'pages#home'
+
   resources :users, :only => [:new, :create, :update]
   get '/users' => 'users#index'
   get '/users/edit' =>'users#edit'
@@ -10,9 +11,8 @@ Rails.application.routes.draw do
   delete '/login' => 'session#destroy'
 
   resources :posts, :only => [:create, :destroy] do
-
+    resources :comments
     put '/likes' => 'likes#update', as: 'likes'
-
   end
 
 end

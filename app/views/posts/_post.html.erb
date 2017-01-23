@@ -1,10 +1,19 @@
 
+
 <% @user.posts.each do |post| %>
   <h3><%= @user.name %></h3>
   <p><%= "#{time_ago_in_words(post.created_at)} ago" unless post.created_at.nil? %></p>
   <p><%= post.tweet %></p>
-  <p><%= link_to 'Likes:', post_likes_path(:post_id => post.id), :method =>'put' %> <%= post.likes unless post.likes.nil? %></p>
+
+  <p><%= link_to post_likes_path(:post_id => post.id), :method =>'put' do%><i class="glyphicon glyphicon-heart"></i><% end %>
+
+    <%= post.likes unless post.likes.nil? %></p>
   <% if @user == post.user %>
     <%= link_to "Delete Tweet", post_path(:id => post.id),:method => 'delete', :data => { :confirm => 'Are you sure?'}  %>
   <% end %>
+
+  <%= link_to 'Comment', '#', data: {toggle: "modal", target: "#myModal"} %>
+
+  <%=  link_to 'Comment', post_comments_path(post, @comment)%>
+
 <% end %>

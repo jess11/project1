@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  tweet      :text
-#  likes      :integer
+#  likes      :integer          default("0")
 #  user_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
