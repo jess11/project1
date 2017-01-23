@@ -1,9 +1,13 @@
 
-<p>Comments </p>
+
 <% @post.comments.each do |comment| %>
-  <h3><%= comment.user %></h3>
+  <h3><%= comment.user.name %></h3>
   <p><%= "#{time_ago_in_words(comment.created_at)} ago"%></p>
   <p><%= comment.message %></p>
+
+ <% if @current_user == comment.user %>
+    <%= link_to "Delete Comment", post_comment_path(:post_id => @post.id, :id => comment.id),:method => 'delete', :data => { :confirm => 'Are you sure?'}  %>
+  <% end %>
 
 
 <% end %>

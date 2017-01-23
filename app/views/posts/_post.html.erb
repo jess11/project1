@@ -12,7 +12,7 @@
     <%= link_to "Delete Tweet", post_path(:id => post.id),:method => 'delete', :data => { :confirm => 'Are you sure?'}  %>
   <% end %>
 
-  <%= link_to 'Comment', '#', data: {toggle: "modal", target: "#myModal"} %>
+  <%= link_to 'Modal', '#', data: {toggle: "modal", target: "#myModal"} %>
 
   <%=  link_to 'Comment', post_comments_path(post, @comment)%>
 
