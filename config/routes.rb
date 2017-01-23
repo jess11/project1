@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
 
-  resources :posts, :only => [:create, :destroy]
+  resources :posts, :only => [:create, :destroy] do
 
+    put '/likes' => 'likes#update', as: 'likes'
+
+  end
 
 end
