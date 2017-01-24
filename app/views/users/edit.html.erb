@@ -8,7 +8,7 @@
   </ol>
 <% end %>
 
-<%= form_for @user do |f| %>
+<%= form_for(@user, :html => {:multipart => true}) do |f| %>
 
   <div class="form-group">
     <%= f.label :name %>
@@ -27,7 +27,10 @@
 
   <div class="form-group">
     <%= f.label :image %>
-    <%= f.url_field :image, :class => 'form-control' %>
+    <%= f.cl_image_upload :image, :class => 'form-control' %>
+    <% unless @user.image == nil %>
+      <%= cl_image_tag @user.image, :class => "user_info_pic" %>
+    <% end %>
   </div>
 
   <%= f.submit :class => 'btn btn-primary'%>

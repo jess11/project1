@@ -1,6 +1,6 @@
 <h3><%= @user.name %></h3>
 
-<img src="<%= @user.image %>" alt="profile_image">
+<%= cl_image_tag @user.image, :class => "user_info_pic" %>
 <p>Email: <%= @user.email %></p>
 <p>Location: <%= @user.location %></p>
 
