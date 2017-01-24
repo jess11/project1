@@ -1,0 +1,30 @@
+
+<ul class="media-list">
+  <% @users.each do |user| %>
+  <!-- ensures that current_user is not on the list of suggested friends. -->
+  <% unless @current_user == user %>
+    <li class="media">
+    <div class="media-left">
+      <div class="thumbBox">
+        <%= link_to cl_image_tag("#{user.image}", :class=>"thumb"), url_for({ :controller => 'users', :action =>'show', :id=>user.id }) %>
+      </div>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading"><%= user.name  %></h4>
+      <p><%= user.location  %></p>
+
+        <% if @current_user.following?(user) %>
+          <%=form_for(@current_user.active_relationships.find_by(followed_id: user.id), html: { method: :delete }) do |f| %>
+            <%= f.submit "Unfollow", class: "btn" %>
+          <% end %>
+        <% else %>
+          <%= form_for(@current_user.active_relationships.new) do |f| %>
+            <div><%= hidden_field_tag :followed_id, user.id %></div>
+            <%= f.submit "Follow", class: "btn btn-primary" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </li>
+<% end %>
+</ul

@@ -1,5 +1,6 @@
 
 
+
 <% @user_feed.each do |post| %>
   <h3><%= post.user.name %></h3>
   <p><%= "#{time_ago_in_words(post.created_at)} ago" unless post.created_at.nil? %></p>

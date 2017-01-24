@@ -1,15 +1,25 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.signup_wrapper {
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
+}
+.signupButton{
+  width: 100%;
+}
 .thumb{
   width: 100%;
 }
 
 .thumbBox{
-  height: 70px;
-  width: 70px;
+  height: 90px;
+  width: 90px;
   overflow: hidden;
   display: inline-block;
+  border-radius: 10px;
 }
 
 .textBox{

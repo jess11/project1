@@ -12,9 +12,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new comment_params
     @comment.user_id = @current_user.id
     if @comment.save
-      redirect_to post_comments_path
-    else
-      render post_comments_path
+      redirect_to request.referrer || root_path
     end
   end
 

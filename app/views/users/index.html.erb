@@ -12,18 +12,7 @@
     <% end %>
   <% end %>
 
+<h2>Suggested Friends</h2>
+<%= render :partial => "users/users_gallery" %>
 
-    <% @users.each do |user| %>
-      <div class="row">
-        <div class="thumbBox">
-            <%= link_to cl_image_tag("#{user.image}", :class=>"thumb"), url_for({ :controller => 'users', :action =>'show', :id=>user.id }) %>
-        </div>
-        <div class="textBox">
-          <h3><%= user.name  %></h3>
-          <p><%= user.location  %></p>
-        </div>
-      </div>
-    <% end %>
-
-  </div>
 <% end %>

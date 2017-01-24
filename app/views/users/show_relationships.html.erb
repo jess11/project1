@@ -1,6 +1,2 @@
 <h2><%= @title %></h2>
-  <% @users.each do |user| %>
-  <%= link_to image_tag("#{user.image}")%>
-  <%= user.name %>
-  <%= will_paginate %>
-<% end %>
+<%= render :partial => "users/users_gallery" %>
