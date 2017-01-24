@@ -2,12 +2,13 @@ class CommentsController < ApplicationController
   def index
     @user = @current_user
     @post = Post.find params[:post_id]
+    @user_post = @post.user
     @comment = Comment.new
-    render :index
+    render :index, :layout => false
   end
 
   def create
-    @post = @current_user.posts.find params[:post_id]
+    @post = Post.find params[:post_id]
     @comment = @post.comments.new comment_params
     @comment.user_id = @current_user.id
     if @comment.save

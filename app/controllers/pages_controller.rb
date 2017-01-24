@@ -5,6 +5,9 @@ class PagesController < ApplicationController
       @post = Post.new
     end
     @user= @current_user
+    #when looking at own page, shows entire feed including the ones being followed
+    @user_feed= @current_user.feed
+
   end
 
 end

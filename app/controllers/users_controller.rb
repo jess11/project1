@@ -4,11 +4,12 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-
   end
 
   def show
     @user = User.find params[:id]
+    #when visiting other's page, only show the users tweets, not the ones they follow.
+    @user_feed = @user.posts
     if @user == @current_user
       redirect_to root_path
     end
@@ -51,10 +52,7 @@ class UsersController < ApplicationController
     end
     #Cloudinary END
     @user.update user_params
-    redirect_to users_profile_path
-
-
-
+    redirect_to root_path
   end
 
   def profile
