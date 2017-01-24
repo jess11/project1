@@ -1,24 +1,4 @@
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Comment</h4>
-      </div>
-      <div class="modal-body">
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 <% if @current_user.present? %>
 
@@ -29,21 +9,7 @@
   <div class="col-md-8">
     <h1>Twitter Clone</h1>
 
-    <% if @post.errors.any? %>
-      <ol>
-        <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
-      </ol>
-    <% end %>
-
-    <%= form_for @post do |f| %>
-      <div class="form-group">
-        <%= f.label :tweet , :class => "sr-only"%>
-        <%= f.text_area :tweet, placeholder: "What's new?", :required => true, :class => "form-control" %>
-      </div>
-      <%= f.submit "Tweet", :class => 'btn btn-primary'%>
-    <% end %>
+    <%=  render :partial => 'posts/post_form' %>
 
     <%=  render :partial => 'posts/post' %>
   </div>

@@ -1,9 +1,17 @@
 class UsersController < ApplicationController
-  before_action :check_if_logged_in, :only => [:edit, :update]
-  before_action :check_if_admin, :only => [:index]
+  before_action :check_if_logged_in, :only => [:edit, :update, :index]
+  before_action :check_if_admin, :only => []
 
   def index
     @users = User.all
+
+  end
+
+  def show
+    @user = User.find params[:id]
+    if @user == @current_user
+      redirect_to root_path
+    end
   end
 
   def new
@@ -32,6 +40,20 @@ class UsersController < ApplicationController
 
   def profile
     @user= @current_user
+  end
+
+  def following
+    @title = "Following"
+    @user = User.find params[:id]
+    @users = @user.following.paginate(page: params[:page])
+    render 'show_relationships'
+  end
+
+  def followers
+    @title = "Followers"
+    @user = User.find params[:id]
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_relationships'
   end
 
   private

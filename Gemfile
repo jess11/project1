@@ -33,7 +33,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
   gem 'thor', '0.19.1'
-
+  gem 'cloudinary'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -43,6 +43,7 @@ end
 
 gem 'rails_12factor'
 gem 'bootstrap-sass'
+gem 'will_paginate'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
