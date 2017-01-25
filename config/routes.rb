@@ -16,7 +16,9 @@ get '/users/edit' =>'users#edit'
   end
   resources :posts, :only => [:create, :destroy] do
     resources :comments
-    put '/likes' => 'likes#update', as: 'likes'
+
   end
+  post '/posts/:post_id/likes' => 'likes#create', :as => "likes"
+  delete '/posts/:post_id/likes' => 'likes#destroy'
   resources :relationships, :only => [:create, :destroy]
 end

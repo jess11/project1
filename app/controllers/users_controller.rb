@@ -73,6 +73,7 @@ class UsersController < ApplicationController
     render 'show_relationships'
   end
 
+
   private
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :name, :image, :location)
