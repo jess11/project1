@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   def create
     @user = @current_user
     @post = @user.posts.new post_params
+    @user_feed= @current_user.feed
     if @post.save
       redirect_to root_path
     else
