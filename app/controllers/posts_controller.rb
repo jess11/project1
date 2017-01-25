@@ -5,9 +5,9 @@ class PostsController < ApplicationController
     @user = @current_user
     @post = @user.posts.new post_params
     if @post.save
-          redirect_to root_path
+      redirect_to root_path
     else
-      render "users/main"
+      render "pages/home"
     end
 
   end

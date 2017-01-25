@@ -1,8 +1,8 @@
-
+<div>
 <ul class="media-list">
   <% @users.each do |user| %>
   <!-- ensures that current_user is not on the list of suggested friends. -->
-  <% unless @current_user == user %>
+
     <li class="media">
     <div class="media-left">
       <div class="thumbBox">
@@ -26,5 +26,6 @@
       <% end %>
     </div>
   </li>
-<% end %>
-</ul
+
+</ul>
+</div>

@@ -1,15 +1,14 @@
 <% if @post.errors.any? %>
-  <ol>
     <% @post.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
+    <p class="bg-warning"><%= msg %></p>
     <% end %>
-  </ol>
 <% end %>
 
-<%= form_for @post do |f| %>
+<%= form_for @post, :html => { :class => "form-inline" } do |f| %>
   <div class="form-group">
     <%= f.label :tweet , :class => "sr-only"%>
-    <%= f.text_area :tweet, placeholder: "What's new?", :required => true, :class => "form-control" %>
+    <%= f.text_area :tweet, placeholder: "What's new?", :required => true, :class => "form-control tweet-input" %>
   </div>
   <%= f.submit "Tweet", :class => 'btn btn-primary'%>
+
 <% end %>

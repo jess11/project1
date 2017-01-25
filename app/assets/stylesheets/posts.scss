@@ -1,3 +1,14 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#post_tweet {
+    margin-right: 1em;
+    width: 47em;
+    height: 4em;
+}
+
+#new_post{
+  margin-top: 2em;
+  margin-bottom: -2em;
+  margin-left: -1em;
+}

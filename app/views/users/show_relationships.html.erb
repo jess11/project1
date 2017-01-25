@@ -1,2 +1,13 @@
-<h2><%= @title %></h2>
-<%= render :partial => "users/users_gallery" %>
+
+<div class="row">
+  <div class="col-md-4">
+    <%=  render :partial => 'users/user_info'%>
+  </div>
+  <div class="col-md-8">
+    <h2><%= @title %></h2>
+    <%= render :partial => "users/users_gallery" %>
+    <% if @users.count == 0 %>
+    <p class="lead">Sorry, you have none.</p>
+    <% end %>
+  </div>
+</div>

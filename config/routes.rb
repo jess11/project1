@@ -5,7 +5,7 @@ get '/users/edit' =>'users#edit'
   get '/users' => 'users#index'
 
   get '/users/profile' => 'users#profile'
-
+  get '/admin' => 'pages#admin', :as => "admin"
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'

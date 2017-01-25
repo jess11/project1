@@ -1,0 +1,20 @@
+<% if @current_user.present? %>
+  <% if @current_user.admin? %>
+    <div class="row">
+      <div class="col-md-4">
+        <%=  render :partial => 'users/user_info'%>
+      </div>
+      <div class="col-md-8">
+        <h2>Administration Page</h2>
+        <h3>All Users</h3>
+        <% @users.each do |user| %>
+          <p><%= user.email %></p>
+            <ul>
+              <li>Name: <%= user.name  %></li>
+              <li>Location: <%= user.location %></li>
+            </ul>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

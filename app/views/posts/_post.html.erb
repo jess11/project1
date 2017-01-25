@@ -1,24 +1,40 @@
-
+<div class="feed-container">
 
 
 <% @user_feed.each do |post| %>
-  <h3><%= post.user.name %></h3>
-  <p><%= "#{time_ago_in_words(post.created_at)} ago" unless post.created_at.nil? %></p>
+  <div class="row feed_box">
+  <div class="col-md-2">
+    <div class="thumbBox_feed">
+      <%= link_to cl_image_tag("#{post.user.image}", :class=>"thumb"), url_for({ :controller => 'users', :action =>'show', :id=>post.user.id }) %>
+    </div>
+  </div>
+  <div class="col-md-10 feed-tweet">
+
+  <h3 class= "feed_username"><%= post.user.name %></h3><small class= "feed_time"><%= "#{time_ago_in_words(post.created_at)} ago" unless post.created_at.nil? %></small>
   <p><%= post.tweet %></p>
 
-<%= post.likes.count %>
+  <div class="icons">
+    <% if @current_user.likes.where(:post_id => post.id).count > 0 %>
+        <%= link_to likes_path(:post_id => post.id), :method => 'delete' do%><i class="glyphicon glyphicon-heart"></i><% end %>
+    <% else %>
+        <%= link_to likes_path(:post_id => post.id), :method => 'post' do%><i class="glyphicon glyphicon-heart"></i><% end %>
+    <% end %>
+    <%= post.likes.count %>
+  </div>
 
-<% if @current_user.likes.where(:post_id => post.id).count > 0 %>
-    <%= link_to "Unlike", likes_path(:post_id => post.id), :method => 'delete' %>
-<% else %>
-    <%= link_to "Like", likes_path(:post_id => post.id), :method => 'post' %>
+  <div class="icons">
+    <%= link_to post_comments_path(post, @comment), data: {toggle: "modal", target: "#myModal"} do%><i class="glyphicon glyphicon-comment" aria-hidden="true"></i><% end %>
+    <%= post.comments.count %>
+  </div>
+  <div class="icons">
+    <% if @current_user == post.user %>
+      <%= link_to post_path(:id => post.id),:method => 'delete', :data => { :confirm => 'Are you sure?'} do%><i class="glyphicon glyphicon-trash" aria-hidden="true"></i><% end %>
+    <% end %>
+  </div>
+
+</div>
+</div>
 <% end %>
 
-  <% if @current_user == post.user %>
-    <%= link_to "Delete Tweet", post_path(:id => post.id),:method => 'delete', :data => { :confirm => 'Are you sure?'}  %>
-  <% end %>
 
-
-  <%= link_to "Comment (#{post.comments.count})", post_comments_path(post, @comment), data: {toggle: "modal", target: "#myModal"} %>
-
-<% end %>
+</div>

@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_action :check_if_admin, :only => []
 
   def index
-    @users = User.all
+    @users = User.all.where.not(id: @current_user.id)
+    @user= @current_user
   end
 
   def show

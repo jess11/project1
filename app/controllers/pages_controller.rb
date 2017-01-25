@@ -9,4 +9,10 @@ class PagesController < ApplicationController
     end
   end
 
+  def admin
+    @users = User.all
+    @user= @current_user
+    render :admin
+  end
+
 end
