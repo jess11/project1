@@ -1,20 +1,30 @@
 
-<h3><%= @user_post.name %></h3>
-<p><%= "#{time_ago_in_words(@post.created_at)} ago" unless @post.created_at.nil? %></p>
+<div class="row feed_box_modal">
+  <div class="col-md-2">
+    <div class="thumbBox_feed_modal">
+      <%= cl_image_tag("#{@post.user.image}", :class=>"thumb")%>
+    </div>
+  </div>
+
+  <div class="col-md-10 feed-tweet comment-tweet">
+
+
+<h4><%= @user_post.name %> <small class= "feed_time"> <%= "#{time_ago_in_words(@post.created_at)} ago" unless @post.created_at.nil? %></small></h4>
+
+
 <p><%= @post.tweet %></p>
 
-<% if @current_user.likes.where(:post_id => @post.id).count > 0 %>
-    <%= link_to likes_path(:post_id => @post.id), :method => 'delete' do%><i class="glyphicon glyphicon-heart"></i><% end %>
-<% else %>
-    <%= link_to likes_path(:post_id => @post.id), :method => 'post' do%><i class="glyphicon glyphicon-heart"></i><% end %>
-<% end %>
 
-<% if @user == @post.user %>
-  <%= link_to "Delete Tweet", post_path(:id => @post.id),:method => 'delete', :data => { :confirm => 'Are you sure?'}  %>
-<% end %>
-
+<div class="icons">
+  <% if @current_user == @post.user %>
+    <%= link_to post_path(:id => @post.id),:method => 'delete', :data => { :confirm => 'Are you sure?'} do%><i class="glyphicon glyphicon-trash" aria-hidden="true"></i><% end %>
+  <% end %>
+</div>
+</div>
+</div>
 <%= form_for [@post, @comment] do |f| %>
-  <%= f.label :comment %>
-  <%= f.text_area :message, placeholder: "Comment...", :required => true %>
-  <%= f.submit "Comment"%>
+  <div class="form-group comment-form">
+    <%= f.text_area :message, placeholder: "Comment...", :required => true, :class => "form-control comment-input" %>
+  </div>
+  <%= f.submit "Comment", :class => 'btn btn-primary comment-button'%>
 <% end %>

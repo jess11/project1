@@ -11,9 +11,15 @@
 #  location        :text
 #  password_digest :string
 #  admin           :boolean          default("false")
+#  latitude        :float
+#  longitude       :float
 #
 
 class User < ActiveRecord::Base
+
+  geocoded_by :location
+  after_validation :geocode, if: :location_changed?
+
   has_many :comments
   has_many :posts, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy

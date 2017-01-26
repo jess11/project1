@@ -1,7 +1,11 @@
 <h3><%= @user.name %></h3>
-
-<%= cl_image_tag @user.image, :class => "user_info_pic" %>
-<p>Email: <%= @user.email %></p>
-<p>Location: <%= @user.location %></p>
-
+<% if @user.image == nil %>
+  <img src="https://s-media-cache-ak0.pinimg.com/736x/dd/40/40/dd404068bbceda57f0d4a50a4b9b9d92.jpg" alt="Profile picture" class = "user_info_pic" >
+<% else %>
+  <%= cl_image_tag @user.image, :class => "user_info_pic" %>
+<% end %>
+<div class="user_info_text">
+  <p><b>Email:</b> <%= @user.email %></p>
+  <p><b>Location:</b> <%= @user.location %></p>
+</div>
 <%= render :partial => 'users/relationships' %>

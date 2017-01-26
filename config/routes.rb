@@ -6,6 +6,7 @@ get '/users/edit' =>'users#edit'
 
   get '/users/profile' => 'users#profile'
   get '/admin' => 'pages#admin', :as => "admin"
+  get '/map' => 'pages#map', :as => "map"
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'

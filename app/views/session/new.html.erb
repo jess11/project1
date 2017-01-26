@@ -8,7 +8,7 @@
         <% if flash[:error].present? %>
           <p><%= flash[:error] %></p>
         <% end %>
-        <%= form_tag login_path, :class=> "form-inline" do%>
+        <%= form_tag login_path do%>
           <div class="form-group">
             <%= email_field_tag :email, nil, :class => "form-control", :placeholder => "Email" %>
           </div>

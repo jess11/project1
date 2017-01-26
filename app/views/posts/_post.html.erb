@@ -10,7 +10,7 @@
   </div>
   <div class="col-md-10 feed-tweet">
 
-  <h3 class= "feed_username"><%= post.user.name %></h3><small class= "feed_time"><%= "#{time_ago_in_words(post.created_at)} ago" unless post.created_at.nil? %></small>
+  <h4 class= "feed_username"><%= post.user.name %></h4><small class= "feed_time"><%= "#{time_ago_in_words(post.created_at)} ago" unless post.created_at.nil? %></small>
   <p><%= post.tweet %></p>
 
   <div class="icons">

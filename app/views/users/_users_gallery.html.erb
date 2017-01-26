@@ -6,7 +6,12 @@
     <li class="media">
     <div class="media-left">
       <div class="thumbBox">
-        <%= link_to cl_image_tag("#{user.image}", :class=>"thumb"), url_for({ :controller => 'users', :action =>'show', :id=>user.id }) %>
+        <% if user.image == nil %>
+            <%= link_to user_path(:id=>user.id), :method=>'get' do%>
+            <%=image_tag("https://s-media-cache-ak0.pinimg.com/736x/dd/40/40/dd404068bbceda57f0d4a50a4b9b9d92.jpg", :class=>"thumb")%><% end %>
+        <% else %>
+          <%= link_to cl_image_tag("#{user.image}", :class=>"thumb"), url_for({ :controller => 'users', :action =>'show', :id=>user.id }) %>
+        <% end %>
       </div>
     </div>
     <div class="media-body">

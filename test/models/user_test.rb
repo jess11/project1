@@ -11,6 +11,8 @@
 #  location        :text
 #  password_digest :string
 #  admin           :boolean          default("false")
+#  latitude        :float
+#  longitude       :float
 #
 
 require 'test_helper'

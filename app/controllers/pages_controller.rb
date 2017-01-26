@@ -15,4 +15,7 @@ class PagesController < ApplicationController
     render :admin
   end
 
+  def map
+    @users = User.all
+  end
 end

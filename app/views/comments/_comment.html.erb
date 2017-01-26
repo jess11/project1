@@ -1,13 +1,16 @@
 
 
 <% @post.comments.each do |comment| %>
-  <h3><%= comment.user.name %></h3>
-  <p><%= "#{time_ago_in_words(comment.created_at)} ago"%></p>
-  <p><%= comment.message %></p>
-
- <% if @current_user == comment.user %>
-    <%= link_to "Delete Comment", post_comment_path(:post_id => @post.id, :id => comment.id),:method => 'delete', :data => { :confirm => 'Are you sure?'}  %>
-  <% end %>
+  <div class="comment-box">
+    <h4><%= comment.user.name %> <small><%=  "#{time_ago_in_words(comment.created_at)} ago"%></small></h4>
 
 
+    <p><%= comment.message %></p>
+
+    <div class="icons">
+      <% if @current_user == comment.user %>
+        <%= link_to post_comment_path(:post_id => @post.id,:id => comment.id), :method => 'delete', :data => { :confirm => 'Are you sure?'} do%><i class="glyphicon glyphicon-trash" aria-hidden="true"></i><% end %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
