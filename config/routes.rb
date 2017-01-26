@@ -4,6 +4,8 @@ get '/users/edit' =>'users#edit'
 
   get '/users' => 'users#index'
 
+  get '/easter' => 'users#easter', :as => "easter"
+
   get '/users/profile' => 'users#profile'
   get '/admin' => 'pages#admin', :as => "admin"
   get '/map' => 'pages#map', :as => "map"

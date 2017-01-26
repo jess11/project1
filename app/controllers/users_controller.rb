@@ -44,6 +44,7 @@ class UsersController < ApplicationController
   end
 
   def update
+
     @user= @current_user
     # @user= User.find params[:id]
     #Cloudinary START
@@ -53,7 +54,11 @@ class UsersController < ApplicationController
     end
     #Cloudinary END
     @user.update user_params
-    redirect_to root_path
+    if @current_user.location.downcase == "madagascar"
+      redirect_to easter_path
+    else
+      redirect_to root_path
+    end
   end
 
   def profile
