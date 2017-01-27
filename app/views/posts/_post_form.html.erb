@@ -4,11 +4,12 @@
     <% end %>
 <% end %>
 
-<%= form_for @post, :html => { :class => "form-inline" } do |f| %>
-  <div class="form-group">
-    <%= f.label :tweet , :class => "sr-only"%>
-    <%= f.text_area :tweet, placeholder: "What's new?", :required => true, :class => "form-control tweet-input" %>
-  </div>
-  <%= f.submit "Tweet", :class => 'btn btn-primary'%>
-
-<% end %>
+<div class="post-form-container">
+  <%= form_for @post do |f| %>
+    <div class="form-group">
+      <%= f.label :tweet , :class => "sr-only"%>
+      <%= f.text_area :tweet, placeholder: "What's new?", :required => true, :class => "form-control" %>
+    </div>
+    <%= f.submit "Tweet", :class => 'btn btn-primary'%>
+  <% end %>
+</div>

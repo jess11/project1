@@ -3,10 +3,9 @@
 
 <% @user_feed.each do |post| %>
   <div class="row feed_box">
-  <div class="col-md-2">
-    <div class="thumbBox_feed">
-      <%= link_to cl_image_tag("#{post.user.image}", :class=>"thumb"), url_for({ :controller => 'users', :action =>'show', :id=>post.user.id }) %>
-    </div>
+  <div class="col-md-2 feed-image-col">
+    <%= link_to user_path(:id=>post.user.id), :method=>'get' do%>
+      <div style="background-image: url( <%= post.user.image %> )", class="thumbBox"></div><% end %>
   </div>
   <div class="col-md-10 feed-tweet">
 
