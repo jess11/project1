@@ -5,7 +5,8 @@
   <div class="row feed_box">
   <div class="col-md-2 feed-image-col">
     <%= link_to user_path(:id=>post.user.id), :method=>'get' do%>
-      <div style="background-image: cloudinary-url( <%= post.user.image %> )", class="thumbBox"></div><% end %>
+      <div style='background-image: url(<%= "http://res.cloudinary.com/kryx11/image/upload/#{post.user.image}"%>)', class="thumbBox"></div>
+    <% end %>
   </div>
   <div class="col-md-10 feed-tweet">
 

@@ -1,13 +1,16 @@
 <h3><%= @user.name %></h3>
+
 <% if @user.image == nil %>
   <div style="background-image: url(https://s-media-cache-ak0.pinimg.com/736x/dd/40/40/dd404068bbceda57f0d4a50a4b9b9d92.jpg)", class="user_info_pic"></div>
 <% else %>
-  <div style="background-image: cloudinary-url(<%= @user.image %>)", class="user_info_pic"></div>
+  <div style='background-image: url(<%= "http://res.cloudinary.com/kryx11/image/upload/#{@user.image}"%>)', class="user_info_pic"></div>
 <% end %>
+
 <div class="user_info_text">
   <p><b>Email:</b> <%= @user.email %></p>
   <p><b>Location:</b> <%= @user.location %></p>
 </div>
+
 <% if @user == @current_user %>
-<%= render :partial => 'users/relationships' %>
+  <%= render :partial => 'users/relationships' %>
 <% end %>

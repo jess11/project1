@@ -1,7 +1,7 @@
 
 <div class="row feed_box_modal">
   <div class="col-md-2 feed-image-col">
-    <div style="background-image: cloudinary-url( <%= @post.user.image %> )", class="thumbBox"></div>
+    <div style='background-image: url(<%= "http://res.cloudinary.com/kryx11/image/upload/#{@post.user.image}"%>)', class="thumbBox"></div>
   </div>
 
   <div class="col-md-10 feed-tweet comment-tweet">
