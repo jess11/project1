@@ -23,7 +23,7 @@
         </div>
 
         <div class="icons">
-          <%= link_to post_comments_path(post, @comment), data: {toggle: "modal", target: "#myModal"} do%><i class="glyphicon glyphicon-comment" aria-hidden="true"></i><% end %>
+          <%= link_to post_comments_path(post,@comment), data: {toggle: "modal", target: "#myModal"} do%><i class="glyphicon glyphicon-comment" aria-hidden="true"></i><% end %>
           <%= post.comments.count %>
         </div>
 
@@ -36,5 +36,5 @@
       </div>
     </div>
   <% end %>
-  
+
 </div>
