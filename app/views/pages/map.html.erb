@@ -8,26 +8,22 @@
 
 <script>
   function initMap() {
-
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 2,
       center: {lat: 25, lng: 0}
     });
 
-<% @users.each do |user| %>
-  <% unless user.longitude == nil %>
-    new google.maps.Marker({
-      position: {lat: <%= user.latitude %>, lng: <%= user.longitude %>},
-      map: map
-    });
-
-  <% end %>
-<% end %>
-
-
+    <% @users.each do |user| %>
+      <% unless user.longitude == nil %>
+        new google.maps.Marker({
+          position: {lat: <%= user.latitude %>, lng: <%= user.longitude %>},
+          map: map
+        });
+      <% end %>
+    <% end %>
   }
 </script>
 
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7Z2-hx69pN3_vjC8sddP-lnVZZuoy-Js&callback=initMap">
-    </script>
+</script>

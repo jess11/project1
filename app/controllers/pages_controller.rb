@@ -18,4 +18,5 @@ class PagesController < ApplicationController
   def map
     @users = User.all
   end
+  
 end

@@ -13,6 +13,7 @@
   <div class="col-md-4">
     <%=  render :partial => 'users/user_info'%>
   </div>
+
   <div class="col-md-8 post-form-container">
     <% unless @current_user == @user %>
       <% if @current_user.following?(@user) %>

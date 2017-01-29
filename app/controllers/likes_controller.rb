@@ -1,6 +1,5 @@
 class LikesController < ApplicationController
 
-
 def create
     @user = @current_user
     @post = Post.find params[:post_id]
@@ -13,7 +12,5 @@ def create
     likes.destroy_all
     redirect_to :back
   end
-
-
 
 end

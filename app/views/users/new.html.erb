@@ -1,14 +1,14 @@
 <div class="signup_wrapper">
   <img src="https://d13yacurqjgara.cloudfront.net/users/5976/screenshots/3000417/geometric_hippo_hippopotamus_folded_origami_animal_logo_design_icon_by_alex_tass.gif" class="hippo-head">
-<h2 class="main-heading">Join today</h2>
+  <h2 class="main-heading">Join today</h2>
 
-<% if @user.errors.any? %>
-  <ol class="bg-warning">
-    <% @user.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ol>
-<% end %>
+  <% if @user.errors.any? %>
+    <ol class="bg-warning">
+      <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ol>
+  <% end %>
 
   <%= form_for @user do |f| %>
     <div class="form-group">

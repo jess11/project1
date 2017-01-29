@@ -1,40 +1,40 @@
 <div class="feed-container">
 
+  <% @user_feed.each do |post| %>
+    <div class="row feed_box">
 
-<% @user_feed.each do |post| %>
-  <div class="row feed_box">
-  <div class="col-md-2 feed-image-col">
-    <%= link_to user_path(:id=>post.user.id), :method=>'get' do%>
-      <div style='background-image: url(<%= "http://res.cloudinary.com/kryx11/image/upload/#{post.user.image}"%>)', class="thumbBox"></div>
-    <% end %>
-  </div>
-  <div class="col-md-10 feed-tweet">
+      <div class="col-md-2 feed-image-col">
+        <%= link_to user_path(:id=>post.user.id), :method=>'get' do%>
+          <div style='background-image: url(<%= "http://res.cloudinary.com/kryx11/image/upload/#{post.user.image}"%>)', class="thumbBox"></div>
+        <% end %>
+      </div>
 
-  <h4 class= "feed_username"><%= post.user.name %></h4><small class= "feed_time"><%= "#{time_ago_in_words(post.created_at)} ago" unless post.created_at.nil? %></small>
-  <p><%= post.tweet %></p>
+      <div class="col-md-10 feed-tweet">
+        <h4 class= "feed_username"><%= post.user.name %></h4><small class= "feed_time"><%= "#{time_ago_in_words(post.created_at)} ago" unless post.created_at.nil? %></small>
+        <p><%= post.tweet %></p>
 
-  <div class="icons">
-    <% if @current_user.likes.where(:post_id => post.id).count > 0 %>
-        <%= link_to likes_path(:post_id => post.id), :method => 'delete' do%><i class="glyphicon glyphicon-heart"></i><% end %>
-    <% else %>
-        <%= link_to likes_path(:post_id => post.id), :method => 'post' do%><i class="glyphicon glyphicon-heart"></i><% end %>
-    <% end %>
-    <%= post.likes.count %>
-  </div>
+        <div class="icons">
+          <% if @current_user.likes.where(:post_id => post.id).count > 0 %>
+              <%= link_to likes_path(:post_id => post.id), :method => 'delete' do%><i class="glyphicon glyphicon-heart"></i><% end %>
+          <% else %>
+              <%= link_to likes_path(:post_id => post.id), :method => 'post' do%><i class="glyphicon glyphicon-heart"></i><% end %>
+          <% end %>
+          <%= post.likes.count %>
+        </div>
 
-  <div class="icons">
-    <%= link_to post_comments_path(post, @comment), data: {toggle: "modal", target: "#myModal"} do%><i class="glyphicon glyphicon-comment" aria-hidden="true"></i><% end %>
-    <%= post.comments.count %>
-  </div>
-  <div class="icons">
-    <% if @current_user == post.user %>
-      <%= link_to post_path(:id => post.id),:method => 'delete', :data => { :confirm => 'Are you sure?'} do%><i class="glyphicon glyphicon-trash" aria-hidden="true"></i><% end %>
-    <% end %>
-  </div>
+        <div class="icons">
+          <%= link_to post_comments_path(post, @comment), data: {toggle: "modal", target: "#myModal"} do%><i class="glyphicon glyphicon-comment" aria-hidden="true"></i><% end %>
+          <%= post.comments.count %>
+        </div>
 
-</div>
-</div>
-<% end %>
+        <div class="icons">
+          <% if @current_user == post.user %>
+            <%= link_to post_path(:id => post.id),:method => 'delete', :data => { :confirm => 'Are you sure?'} do%><i class="glyphicon glyphicon-trash" aria-hidden="true"></i><% end %>
+          <% end %>
+        </div>
 
-
+      </div>
+    </div>
+  <% end %>
+  
 </div>

@@ -18,17 +18,18 @@
     <%=  render :partial => 'users/user_info'%>
   </div>
   <div class="col-md-8">
-
     <%=  render :partial => 'posts/post_form' %>
     <%=  render :partial => 'posts/post' %>
   </div>
 </div>
 
 <% else %>
+
   <div class="main">
     <h1>Twitter <small>Simplified</small></h1>
     <div class="hippo-head-wrapper">
       <img src="/assets/geo-hippo.gif" alt="">
     </div>
   </div>
+  
 <% end %>
