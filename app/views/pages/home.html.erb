@@ -1,7 +1,5 @@
 
-
 <!-- Modal start -->
-
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -13,15 +11,15 @@
 
 <% if @current_user.present? %>
 
-<div class="row">
-  <div class="col-md-4">
-    <%=  render :partial => 'users/user_info'%>
+  <div class="row">
+    <div class="col-md-4">
+      <%=  render :partial => 'users/user_info'%>
+    </div>
+    <div class="col-md-8">
+      <%=  render :partial => 'posts/post_form' %>
+      <%=  render :partial => 'posts/post' %>
+    </div>
   </div>
-  <div class="col-md-8">
-    <%=  render :partial => 'posts/post_form' %>
-    <%=  render :partial => 'posts/post' %>
-  </div>
-</div>
 
 <% else %>
 
@@ -39,5 +37,4 @@
   $('#myModal').on('hidden.bs.modal', function () {
   $(this).removeData('bs.modal');
   })
-
 </script>

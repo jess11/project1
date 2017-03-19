@@ -1,9 +1,7 @@
 
 
 <% @post.comments.each do |comment| %>
-
   <div class="comment-box">
-
     <h4><%= comment.user.name %> <small><%=  "#{time_ago_in_words(comment.created_at)} ago"%></small></h4>
 
     <p><%= comment.message %></p>

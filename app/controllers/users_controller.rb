@@ -37,6 +37,7 @@ class UsersController < ApplicationController
     #Cloudinary END
 
 
+
   end
 
   def edit
