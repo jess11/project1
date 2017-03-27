@@ -24,15 +24,9 @@
   margin-bottom: -3em;
 }
 
-.hippo-head-wrapper{
-  margin: 0 auto;
-  background-image: url("/assets/geo-hippo.gif");
-  width: 200px;
-  height: 150px;
-  background-position: center;
-  background-size: contain;
+#hippo{
+  width: 100%;
 }
-
 
 .map-container{
   display:inline-block;
