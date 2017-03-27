@@ -12,23 +12,28 @@
 }
 
 .login-wrapper{
-  width:45%;
-  margin: 5em auto 0 auto;
-  padding-left: 3em;
   text-align: center;
+}
+
+.btn100{
+  width:100%;
 }
 
 .hippo-head{
   width: 100%;
-  margin-top: -8em;
   margin-bottom: -3em;
 }
 
 .hippo-head-wrapper{
-  display: block;
-  margin: 0px auto -60px auto;
-
+  margin: 0 auto;
+  background-image: url("/assets/geo-hippo.gif");
+  width: 200px;
+  height: 150px;
+  background-position: center;
+  background-size: contain;
 }
+
+
 .map-container{
   display:inline-block;
   width: 960px;
